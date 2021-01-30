@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: deps
-          key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          key: ${{ runner.os }}-mix-v2-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
       - uses: actions/upload-artifact@v2
         with:
           name: deps
