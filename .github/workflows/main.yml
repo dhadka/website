@@ -5,6 +5,8 @@ on:
     branches: develop
   pull_request:
     branches: develop
+  workflow_dispatch:
+  
 env:
   otp-version: '23.1.2'
   elixir-version: '1.11.2'
@@ -27,6 +29,10 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: deps
+          path: deps
       - name: restore-build
         uses: actions/cache@v1
         with:
